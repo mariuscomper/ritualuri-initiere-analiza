@@ -27,13 +27,14 @@ Conținutul este organizat în 14 secțiuni, de la o introducere generală la o 
 ## Caracteristici tehnice
 
 - Design editorial responsive (mobile-first)
-- Tipografie premium: Playfair Display + Inter
+- Tipografie cu fonturi de sistem, fără cereri către CDN
 - Bară de progres la citire
 - Cuprins interactiv cu navigare lină
 - Carduri de insight, citate evidențiate, diagrame de flux
-- Animații fade-in la scroll
+- Animații fade-in la scroll, dezactivate când este activată preferința `prefers-reduced-motion`
+- Teme luminoasă și întunecată, cu buton accesibil
 - Facebook Open Graph meta tags
-- Zero dependențe externe (în afară de Google Fonts)
+- Zero dependențe externe
 
 ## Utilizare
 

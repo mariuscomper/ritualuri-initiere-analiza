@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logica adaptivă a ritualurilor de inițiere — o analiză multi-disciplinară</title>
 
+    <meta name="description" content="O analiză multidisciplinară a ritualurilor de inițiere, de la semnalizarea costisitoare și liminalitate la disonanță cognitivă, coeziune și neuroștiință.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="https://mariuscomper.github.io/ritualuri-initiere-analiza/">
+
     <!-- Facebook Open Graph -->
     <meta property="og:title" content="De ce ritualurile de inițiere au existat în aproape toate societățile umane">
     <meta property="og:description" content="O analiză profundă din perspectiva psihologiei evoluționiste, antropologiei, psihologiei, sociologiei și neuroștiinței. Ce ne spun aceste practici universale despre natura umană.">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="ro_RO">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <meta property="og:url" content="https://mariuscomper.github.io/ritualuri-initiere-analiza/">
+    <meta name="twitter:card" content="summary">
 
     <style>
         :root {
@@ -32,10 +35,26 @@
             --border: #e0dcd4;
             --shadow: 0 2px 20px rgba(26, 26, 46, 0.06);
             --shadow-lg: 0 8px 40px rgba(26, 26, 46, 0.1);
+            --footer-text: rgba(255, 255, 255, 0.78);
+            --footer-title: #ffffff;
             --max-width: 720px;
-            --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
+            --font-serif: Georgia, 'Times New Roman', serif;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-card: #182438;
+            --text-primary: #f4f7fb;
+            --text-secondary: #d0d7e2;
+            --text-muted: #aeb8c7;
+            --border: #334155;
+            --shadow: 0 2px 20px rgba(0, 0, 0, 0.24);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.34);
+            --footer-text: #d0d7e2;
+            --footer-title: #ffffff;
         }
 
         * {
@@ -443,7 +462,7 @@
         /* Footer */
         .footer {
             background: var(--bg-dark);
-            color: rgba(255, 255, 255, 0.5);
+            color: var(--footer-text);
             text-align: center;
             padding: 3rem 2rem;
             font-size: 0.75rem;
@@ -451,7 +470,7 @@
 
         .footer .footer-title {
             font-family: var(--font-serif);
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--footer-title);
             font-size: 1rem;
             margin-bottom: 0.5rem;
         }
@@ -488,6 +507,25 @@
             background: var(--accent-light);
         }
 
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 120;
+            border: 1px solid rgba(255,255,255,0.35);
+            border-radius: 999px;
+            padding: 0.55rem 0.85rem;
+            background: var(--bg-dark);
+            color: #fff;
+            cursor: pointer;
+            font: 600 0.72rem var(--font-sans);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .theme-toggle:focus-visible,
+        .back-to-top:focus-visible,
+        .toc a:focus-visible { outline: 3px solid var(--accent-gold-light); outline-offset: 3px; }
+
         /* Responsive */
         @media (max-width: 640px) {
             html { font-size: 16px; }
@@ -515,6 +553,17 @@
             transform: translateY(0);
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .fade-in { opacity: 1; transform: none; }
+        }
+
         /* Print styles */
         @media print {
             .progress-bar, .back-to-top, .toc-container { display: none; }
@@ -524,6 +573,7 @@
     </style>
 </head>
 <body>
+    <button class="theme-toggle" id="themeToggle" type="button" data-theme-storage="ritualuri-initiere-analiza" aria-label="Schimbă tema" aria-pressed="false">Temă întunecată</button>
     <!-- Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
 
@@ -552,7 +602,7 @@
                 <li><a href="#sociology">Sociologie: reproducerea puterii și controlul social</a></li>
                 <li><a href="#neuroscience">Neuroștiință: biochimia legării prin durere</a></li>
                 <li><a href="#synthesis1">Sinteza — convergența disciplinelor</a></li>
-                <li style="list-style:none;padding:0;margin:0.3rem 0"><span style="display:block;border-top:1px solid #e0dcd4"></span></li>
+                <li class="toc-divider" style="list-style:none;padding:0;margin:0.3rem 0"></li>
                 <li><a href="#game-theory">Arhitectura profundă I: teoria jocurilor</a></li>
                 <li><a href="#anthro-deep">Arhitectura profundă II: registrul antropologic complet</a></li>
                 <li><a href="#psych-deep">Arhitectura profundă III: ce se întâmplă în creier</a></li>
@@ -1027,6 +1077,7 @@
     <!-- Back to top -->
     <button class="back-to-top" id="backToTop" aria-label="Înapoi sus">&#8593;</button>
 
+    <script src="./theme-toggle.js"></script>
     <script>
         // Progress bar
         const progressBar = document.getElementById('progressBar');
@@ -1049,20 +1100,26 @@
         }
         window.addEventListener('scroll', toggleBackToTop, { passive: true });
         backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
         });
 
         // Fade-in on scroll
         const fadeEls = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        fadeEls.forEach(el => observer.observe(el));
+        const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+        if (!reduceMotion && 'IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            fadeEls.forEach(el => observer.observe(el));
+        } else {
+            fadeEls.forEach(el => el.classList.add('visible'));
+        }
     </script>
 </body>
 </html>
